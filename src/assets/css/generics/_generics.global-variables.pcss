@@ -10,10 +10,16 @@
   --base-font-family: theme('fontFamily.body'); /* [1] */
   --base-bold-weight: theme('fontWeight.bold');
 
-  --base-bg-color: #ffffff;
-  --base-text-color: #000000;
+  --base-heading-line-height: theme('lineHeight.tight');
+
+  --base-bg-color: theme('colors.white');
+  --base-text-color: theme('colors.black');
 
   --base-scroll-padding: 70px; /* [2] */
   @screen tablet {  --base-scroll-padding: 100px; /* [5] */  }
   @screen desk {  --base-scroll-padding: 140px; /* [5] */  }
+
+  /* Logos */
+  --logo-text-color: theme('colors.black');
+  --logo-leaf-color: theme('colors.turquoise');
 }

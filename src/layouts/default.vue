@@ -1,6 +1,7 @@
 <template>
   <div class="u-sticky-footer">
     <div>
+      <SiteHeader />
       <main>
         <slot />
       </main>

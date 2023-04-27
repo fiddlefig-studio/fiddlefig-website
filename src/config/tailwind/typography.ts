@@ -2,24 +2,16 @@
 import { pxToRemPair } from '@captaincss/captaincss/helpers';
 
 export const fontFamily = {
-  title: ['HeimatSans', 'sans-serif'],
-  body: ['HeimatSans', 'sans-serif'],
+  title: ['cooper-black-std', 'sans-serif'],
+  body: ['Domine', 'sans-serif'],
 };
 
 export const fontSize = {
   // Create map of fonts with px keys and rem values, e.g. { 16: 1rem, 32: 2rem }
-
-  // @todo Set up the font sizes for your project, then remove this comment
-  ...pxToRemPair(90),
-  ...pxToRemPair(80),
-  ...pxToRemPair(60),
-  ...pxToRemPair(50),
-  ...pxToRemPair(44),
-  ...pxToRemPair(40),
-  ...pxToRemPair(36),
-  ...pxToRemPair(30),
-  ...pxToRemPair(28),
-  ...pxToRemPair(25),
+  ...pxToRemPair(70),
+  ...pxToRemPair(55),
+  ...pxToRemPair(45),
+  ...pxToRemPair(26),
   ...pxToRemPair(20),
   ...pxToRemPair(18),
   ...pxToRemPair(16),
@@ -30,6 +22,6 @@ export const fontSize = {
 };
 
 export const lineHeight = {
-  tight: '1',
-  normal: '1.3',
+  tight: '1.2',
+  normal: '1.6',
 };

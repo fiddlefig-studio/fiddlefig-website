@@ -1,12 +1,25 @@
 export function colors() {
   return {
-    /* Replace these colors with your own */
-    white: '#FFFFFF',
-    black: '#000000',
+    'true-black': '#000',
+    'true-white': '#fff',
 
-    blue: '#CAD7DB',
-    red: '#C9C5CD',
-    green: '#B7D8CB',
-    yellow: '#DDDBB5',
+    white: '#F6F5F1',
+    black: '#2B2B2B',
+
+    purple: '#4B418A',
+    'purple-light': '#9E93C8',
+
+    blue: '#1C559C',
+    'blue-light': '#5A8DCA',
+
+    turquoise: '#15A2B4',
+
+    yellow: '#FFD600',
+
+    pink: '#FFAEB0',
+
+    red: '#F9442C',
+
+    orange: '#FFAD31',
   };
 }

@@ -12,7 +12,7 @@
 
 html {
   background-color: var(--base-bg-color);
-  color: var(--base-text-color);
+  color: var(--base-text-color, red);
   font-family: var(--base-font-family);
   font-size: 1em; /* [1] */
   //-moz-osx-font-smoothing: grayscale; /* [2] */
@@ -40,6 +40,15 @@ body {
 
 sub {
   position: static;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: var(--base-heading-line-height, 1.2);
 }
 
 h1,
