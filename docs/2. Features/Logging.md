@@ -1,19 +1,19 @@
 # Guide > Features > Logging
 
-Logging is provided by the plugin at `~/plugins/logger`.  
+Logging is provided by the plugin at `~/app/utilities/logger`.  
 The default logger works during SSR and on the client's browser.
 
 For future iterations, we may want to add one or more custom loggers, so that we can log
-to multiple places based on severity. E.G. send FATAL to Slack, 
+to multiple places based on severity. E.G. send FATAL to Slack,
 send ERROR to PaperTrail, etc.
 
 ## Using the logger
 
-To use the logger, import it from `~/utilities/logger`
+To use the logger, import it from `~/app/utilities/logger`
 
 ```vue
 <script setup>
-import { logger } from '~/utilities/logger'
+import { logger } from '~/app/utilities/logger'
 
 logger.debug('test')
 </script>
@@ -23,17 +23,17 @@ logger.debug('test')
 
 There are 8 logging methods available, for logging messages of different severity:
 
-- `Logger.fatal()` System is unusable, action must be taken immediately. Could be a component unavailable or unexpected exception
-- `Logger.error()` Runtime errors that do not require immediate action but should be logged and monitored
-- `Logger.warn()` Exceptional occurrences that are not errors
-- `Logger.log()` Normal but significant events
-- `Logger.info()` Interesting events
-- `Logger.start()` Log the start of some process
-- `Logger.ready()` Log when something is ready
-- `Logger.success()` Log when a process was successful
-- `Logger.fail()` Log when a process failed
-- `Logger.debug()` Detailed debug information
-- `Logger.trace()` Extremely detailed debug information
+- `logger.fatal()` System is unusable, action must be taken immediately. Could be a component unavailable or unexpected exception
+- `logger.error()` Runtime errors that do not require immediate action but should be logged and monitored
+- `logger.warn()` Exceptional occurrences that are not errors
+- `logger.log()` Normal but significant events
+- `logger.info()` Interesting events
+- `logger.start()` Log the start of some process
+- `logger.ready()` Log when something is ready
+- `logger.success()` Log when a process was successful
+- `logger.fail()` Log when a process failed
+- `logger.debug()` Detailed debug information
+- `logger.trace()` Extremely detailed debug information
 
 Some logging implementations may handle some log levels in the same way. For example, the default
 implementation calls `console.error()` for Emergency, Critical and Error levels. A Slack implementation
@@ -59,3 +59,11 @@ Verbosity is set by the following methods, in descending order of priority:
 - `APP_LOG_LEVEL` defined in `.env`
 - Set to 1 if the the `NODE_ENV` defined on `process.env` is set to `production`
 - Otherwise, the fallback defined in the logger as the default mode (current 3, as set by Consola)
+
+## Integration with the Vue error handler
+
+There is a logging plugin at `~/plugins/logging/index.ts` which integrates the logger with Vue's error handler.
+
+This will log out errors that otherwise are swallowed up by Vue or not visible otherwise.
+
+This plugin also sets the log level for the logger for use in the app.

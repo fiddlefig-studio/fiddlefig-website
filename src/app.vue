@@ -1,5 +1,6 @@
 <template>
   <NuxtLayout>
+    <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
 </template>
@@ -11,7 +12,7 @@ const { resourceHints, stylesheets } = useWebFonts([
 ]);
 
 useHead({
-  title: 'Fiddlefig Studio | Web Design + Development | Refuse to Blend In',
+  title: 'Fiddlefig Studio | Web Design + Development Studio | Refuse to Blend In',
   link: [
     ...resourceHints,
     ...stylesheets,

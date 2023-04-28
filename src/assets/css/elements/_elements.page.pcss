@@ -15,8 +15,8 @@ html {
   color: var(--base-text-color, red);
   font-family: var(--base-font-family);
   font-size: 1em; /* [1] */
-  //-moz-osx-font-smoothing: grayscale; /* [2] */
-  //-webkit-font-smoothing: antialiased; /* [2] */
+  -moz-osx-font-smoothing: grayscale; /* [2] */
+  -webkit-font-smoothing: antialiased; /* [2] */
   height: stretch; /* [3] */
   line-height: var(--base-line-height, 1.25); /* [1] */
   position: relative; /* [4] */
@@ -48,6 +48,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--base-heading-font-family);
   line-height: var(--base-heading-line-height, 1.2);
 }
 

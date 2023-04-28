@@ -2,7 +2,7 @@
 
 import { defineNuxtPlugin } from '#app';
 
-import { logger } from '~/helpers/logger';
+import { logger } from '~/app/utilities/logger';
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   logger.level = nuxtApp.$config.public.logLevel ?? (process.env.NODE_ENV === 'production' ? 1 : 3);
