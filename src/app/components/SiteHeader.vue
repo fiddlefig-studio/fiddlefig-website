@@ -3,10 +3,10 @@
     <div class="o-wrapper">
       <div class="header-layout">
         <div class="logo">
-          <FiddlefigLogo class="u-my-[50px]" />
+          <FiddlefigLogo class="u-my-[20px]" />
         </div>
-        <div class="middle"></div>
-        <div class="end"></div>
+        <div class="middle" />
+        <div class="end" />
       </div>
     </div>
   </header>

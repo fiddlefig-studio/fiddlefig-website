@@ -1,11 +1,11 @@
 <template>
-  <div class="u-sticky-footer">
+  <div class="u-sticky-footer u-overflow-hidden">
     <div>
       <SiteHeader />
       <main>
         <slot />
       </main>
     </div>
-    <footer><!-- --></footer>
+    <Footer class="u-relative" />
   </div>
 </template>

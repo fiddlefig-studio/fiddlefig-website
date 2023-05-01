@@ -1,0 +1,12 @@
+<template>
+  <svg class="blob-shape" viewBox="0 0 94 112" xmlns="http://www.w3.org/2000/svg">
+    <path d="M90.5094 38.9004C97.3094 60.1004 92.9094 84.8004 75.9094 98.7004C58.9094 112.6 29.3094 115.7 13.8094 103.5C-1.79059 91.3004 -3.19059 63.7004 4.70941 40.9004C12.7094 18.1004 30.1094 0.100419 47.8094 0.000419311C65.6094 -0.0995807 83.7094 17.7004 90.5094 38.9004Z" />
+  </svg>
+</template>
+
+<style scoped>
+.blob-shape {
+  fill: var(--blob-color, currentColor);
+  width: var(--blob-width, 94px);
+}
+</style>
