@@ -1,5 +1,4 @@
 import { components } from './config/nuxt/components';
-import { plugins } from './config/nuxt/plugins';
 import { postcss } from './config/nuxt/postcss';
 import { runtimeConfig } from './config/nuxt/runtimeConfig';
 
@@ -11,7 +10,14 @@ export default defineNuxtConfig({
 
   runtimeConfig,
 
-  plugins,
+  // See: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+    {
+      src: '~/plugins/vercel.client.ts',
+      mode: 'client',
+    },
+    '~/plugins/logger/index.ts',
+  ],
 
   components,
   imports: {

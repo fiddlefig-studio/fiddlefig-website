@@ -20,4 +20,11 @@ useHead({
   ],
   htmlAttrs: { lang: 'en' },
 });
+
+useSeoMeta({
+  title: 'Fiddlefig Studio | Web Design + Development Studio | Refuse to Blend In',
+  ogTitle: 'Fiddlefig Studio | Web Design + Development Studio | Refuse to Blend In',
+  description: 'We specialise in beautiful and original websites for brands who want to stand out. See what 16 years of experience can do for you.',
+  ogDescription: 'We specialise in beautiful and original websites for brands who want to stand out. See what 16 years of experience can do for you.',
+});
 </script>
