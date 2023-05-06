@@ -74,9 +74,25 @@
 }
 
 .main-shape {
+  --blob-width: 165vw;
   color: theme('colors.purple');
-  width: var(--size-ratio);
-  --blob-width: var(--size-ratio);
+  width: 100vw;
+  height: auto;
+  transform: translateX(-34vw);
+
+  @screen phone-wide {
+    --blob-width: 133vw;
+    color: #4B418A;
+    width: 100vw;
+    height: auto;
+    transform: translateX(-19vw);
+  }
+
+  @screen tablet {
+    transform: unset;
+    width: var(--blob-width);
+    --blob-width: var(--size-ratio);
+  }
 }
 
 .blob {
@@ -87,11 +103,20 @@
 .blob-left {
   --blob-color: theme('colors.orange');
   top: calc(50%);
+  left: -30vw;
   height: 100%;
   transform-origin: left center;
   transform: translateY(-50%) scale(0.9);
   > svg {
     height: 100%;
+  }
+
+  @screen phone-wide {
+    left: -25vw;
+  }
+
+  @screen tablet {
+    left: 0;
   }
 }
 

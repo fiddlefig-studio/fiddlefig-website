@@ -10,7 +10,7 @@
       </template>
     </Hero>
   </section>
-  <section class="u-mt-[80px]">
+  <section class="u-mt-[110px]">
     <div class="o-wrapper">
       <div class="o-stack u-items-center u-text-center">
         <h2 class="u-section-heading">
@@ -25,7 +25,7 @@
       </div>
     </div>
   </section>
-  <section class="u-mt-[210px] u-relative">
+  <section class="u-mt-[180px] u-relative">
     <svg class="left-floaty-blob" viewBox="0 0 1042 1303" xmlns="http://www.w3.org/2000/svg">
       <path d="M887.783 422.723C956.469 558.539 1052.51 710.114 1040.7 859.731C1029.22 1009.56 910.737 1157.53 755.914 1237.86C600.564 1318.31 409.607 1330.69 301.74 1236.37C193.872 1142.04 168.987 940.488 119.452 801.832C69.7071 663.494 -4.89664 588.373 0.555725 518.728C6.00809 449.082 91.6244 385.437 161.079 289.755C231.059 193.964 285.404 66.0287 378.794 20.247C471.658 -25.4266 603.778 10.7368 690.506 88.8472C777.55 167.166 818.887 287.224 887.783 422.723Z" fill="currentColor" />
     </svg>
@@ -55,7 +55,7 @@
 
       <div class="u-mt-[136px] o-wrapper u-max-w-[1058px]">
         <div class="u-max-w-[650px]">
-          <h4 class="u-text-[45px]">
+          <h4 class="u-text-[30px] tablet:u-text-[45px]">
             <span class="u-text-[20px] u-block">01</span>Design
           </h4>
           <p class="u-section-text u-mt-16">
@@ -64,7 +64,7 @@
         </div>
 
         <div class="u-mt-[100px] u-max-w-[650px] u-ml-auto">
-          <h4 class="u-text-[45px] ">
+          <h4 class="u-text-[30px] tablet:u-text-[45px]">
             <span class="u-text-[20px] u-block">02</span>Experience
           </h4>
           <p class="u-section-text u-mt-16">
@@ -73,7 +73,7 @@
         </div>
 
         <div class="u-mt-[100px] u-max-w-[650px]">
-          <h4 class="u-text-[45px]">
+          <h4 class="u-text-[30px] tablet:u-text-[45px]">
             <span class="u-text-[20px] u-block">03</span>Impact
           </h4>
           <p class="u-section-text u-mt-16">
@@ -103,7 +103,7 @@
         </div>
       </div>
 
-      <div class="o-layout__item tablet-wide:u-w-1/2">
+      <div class="o-layout__item u-mt-[120px] tablet-wide:u-mt-0 tablet-wide:u-w-1/2">
         <div class="u-flex u-flex-col u-items-center u-text-white">
           <h2 class="u-main-heading u-text-center">
             See more
@@ -122,7 +122,7 @@
   color: theme('colors.orange');
   position: absolute;
   width: 1042px;
-  top: -355px;
+  top: -195px;
   right: 50%;
 }
 
@@ -130,7 +130,7 @@
   color: theme('colors.pink');
   position: absolute;
   width: 872px;
-  top: -200px;
+  top: -40px;
   left: 55%;
 }
 
@@ -138,15 +138,38 @@
   --blob-width: 180px;
   color: theme('colors.purple-light');
   position: absolute;
-  right: 40px;
-  bottom: 700px;
+  right: -80px;
+  bottom: 500px;
+
+  @screen tablet {
+    right: 40px;
+  }
 }
 
 .purple-side-split {
+  bottom: -225px;
   color: theme('colors.purple');
+  left: 0;
   position: absolute;
+  transform: scale(0.7) rotate(15deg);
+  transform-origin: left;
   width: 946px;
-  top: -240px;
-  left: 50%;
+
+  @screen tablet {
+    transform-origin: unset;
+    transform: scaleY(0.7);
+    right: -20%;
+    top: 130px;
+    left: unset;
+  }
+
+  @screen tablet-wide {
+    width: 946px;
+    top: -240px;
+    bottom: unset;
+    left: 50%;
+    transform: unset;
+    transform-origin: unset;
+  }
 }
 </style>
