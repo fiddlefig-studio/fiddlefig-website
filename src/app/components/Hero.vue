@@ -102,20 +102,18 @@
 
 .blob-left {
   --blob-color: theme('colors.orange');
+  --blob-width: calc(0.63 * var(--size-ratio));
   top: calc(50%);
-  left: -30vw;
-  height: 100%;
-  transform-origin: left center;
-  transform: translateY(-50%) scale(0.9);
-  > svg {
-    height: 100%;
-  }
+  left: -16vw;
+  transform: translateY(-50%);
 
   @screen phone-wide {
-    left: -25vw;
+    left: -10vw;
+    --blob-width: calc(0.5 * var(--size-ratio));
   }
 
   @screen tablet {
+    --blob-width: calc(0.35 * var(--size-ratio));
     left: 0;
   }
 }
@@ -131,37 +129,62 @@
 
 .blob-lower-left-2 {
   --blob-color: theme('colors.purple-light');
-  left: calc(0.18 * var(--size-ratio));
-  bottom: 0;
-  > svg {
-    height: calc(0.135 * var(--size-ratio));
+  --blob-width: calc(0.2 * var(--size-ratio));
+  bottom: -10px;
+  left: calc(0.12 * var(--size-ratio));
+  transform: translateX(40%);
+
+  @screen tablet {
+    bottom: 0;
+    left: calc(0.18 * var(--size-ratio));
+    --blob-width: calc(0.135 * var(--size-ratio));
   }
 }
 
 .blob-top-right {
   --blob-color: theme('colors.orange');
-  top: 0;
-  left: calc(0.82 * var(--size-ratio));
-  > svg {
-    height: calc(0.09 * var(--size-ratio));
+  --blob-width: calc(0.18 * var(--size-ratio));
+  right: calc(-0.04 * var(--size-ratio));
+  top: -10px;
+
+  @screen tablet {
+    --blob-width: calc(0.14 * var(--size-ratio));
+    right: calc(0.06 * var(--size-ratio));
+    top: 0;
   }
 }
 
 .blob-lower-right {
   --blob-color: theme('colors.blue-light');
-  bottom: 21%;
-  left: calc(0.935 * var(--size-ratio));
-  > svg {
-    height: calc(0.08 * var(--size-ratio));
+  --blob-width: calc(0.12 * var(--size-ratio));
+  bottom: -20px;
+  right: calc(-0.03 * var(--size-ratio));
+
+  @screen tablet {
+    --blob-color: theme('colors.blue-light');
+    --blob-width: calc(0.07 * var(--size-ratio));
+    bottom: 21%;
+    right: calc(0.05 * var(--size-ratio));
   }
 }
 
 .blob-lower-right-2 {
   --blob-color: theme('colors.turquoise');
-  bottom: 0;
-  left: calc(0.9 * var(--size-ratio));
-  > svg {
-    height: calc(0.06 * var(--size-ratio));
+  --blob-width: calc(0.09 * var(--size-ratio));
+  bottom: -50px;
+  right: calc(0.16 * var(--size-ratio));
+
+  @screen tablet {
+    --blob-width: calc(0.06 * var(--size-ratio));
+    bottom: -40px;
+    right: calc(0.1 * var(--size-ratio));
   }
 }
+
+/*
+--blob-color: theme('colors.turquoise');
+  --blob-width: calc(0.09 * var(--size-ratio));
+  bottom: -40px;
+  right: calc(0.04 * var(--size-ratio));
+ */
 </style>

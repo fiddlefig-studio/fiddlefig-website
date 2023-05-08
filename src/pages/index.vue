@@ -1,5 +1,5 @@
 <template>
-  <section class="u-mt-[45px]">
+  <section class="u-mt-[60px] phone-wide:u-mt-[45px]">
     <Hero>
       <template #title>
         Refuse to<br>Blend In

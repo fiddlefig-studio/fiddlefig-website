@@ -3,7 +3,7 @@
     <div class="o-wrapper">
       <div class="header-layout">
         <div class="logo">
-          <FiddlefigLogo class="u-my-[20px]" />
+          <FiddlefigLogo class="u-my-[20px] u-w-[110px] tablet-wide:u-w-[147px]" />
         </div>
         <div class="middle" />
         <div class="end" />
