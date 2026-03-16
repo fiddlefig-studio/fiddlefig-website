@@ -1,5 +1,5 @@
 <template>
-  <div class="hero">
+  <div ref="heroRef" class="hero">
     <div class="content">
       <h1 class="heading u-main-heading u-mb-[2.5vw]">
         <slot name="title" />
@@ -11,28 +11,64 @@
     <div class="blob blob-left">
       <BlobOne />
     </div>
-    <div class="blob blob-lower-right">
-      <BlobFive />
-    </div>
     <div class="main-shape u-relative">
       <HeroBlob />
     </div>
-    <div class="blob blob-lower-left">
+    <div
+      class="blob blob-lower-left floating-blob"
+      data-floating-blob
+      data-bound-x="26"
+      data-bound-y="34"
+      data-drift-duration="4.3"
+    >
       <BlobTwo />
     </div>
-    <div class="blob blob-lower-left-2">
+    <div
+      class="blob blob-lower-left-2 floating-blob"
+      data-floating-blob
+      data-bound-x="38"
+      data-bound-y="42"
+      data-drift-duration="5.2"
+    >
       <BlobThree />
     </div>
-    <div class="blob blob-top-right">
+    <div
+      class="blob blob-top-right floating-blob"
+      data-floating-blob
+      data-bound-x="30"
+      data-bound-y="34"
+      data-drift-duration="3.9"
+    >
       <BlobSix />
     </div>
-    <div class="blob blob-lower-right-2">
+    <div
+      class="blob blob-lower-right floating-blob"
+      data-floating-blob
+      data-bound-x="32"
+      data-bound-y="36"
+      data-drift-duration="4.5"
+    >
+      <BlobFive />
+    </div>
+    <div
+      class="blob blob-lower-right-2 floating-blob"
+      data-floating-blob
+      data-bound-x="28"
+      data-bound-y="32"
+      data-drift-duration="4.1"
+    >
       <BlobFour />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup="">
+import { ref } from 'vue';
+import { useFloatingBlobs } from '~/app/composables/useFloatingBlobs';
+
+const heroRef = ref<HTMLElement | null>(null);
+
+useFloatingBlobs(heroRef);
 </script>
 
 <style scoped>
@@ -100,6 +136,13 @@
   z-index: 0;
 }
 
+.floating-blob {
+  --base-transform: translate3d(0, 0, 0);
+
+  transform: var(--base-transform) translate3d(var(--motion-x, 0px), var(--motion-y, 0px), 0);
+  will-change: transform;
+}
+
 .blob-left {
   --blob-color: theme('colors.orange');
   --blob-width: calc(0.63 * var(--size-ratio));
@@ -128,11 +171,11 @@
 }
 
 .blob-lower-left-2 {
+  --base-transform: translateX(40%);
   --blob-color: theme('colors.purple-light');
   --blob-width: calc(0.2 * var(--size-ratio));
   bottom: -10px;
   left: calc(0.12 * var(--size-ratio));
-  transform: translateX(40%);
 
   @screen tablet {
     bottom: 0;

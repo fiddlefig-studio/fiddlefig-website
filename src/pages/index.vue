@@ -25,17 +25,39 @@
       </div>
     </div>
   </section>
-  <section class="u-mt-[180px] u-relative">
-    <svg class="left-floaty-blob" viewBox="0 0 1042 1303" xmlns="http://www.w3.org/2000/svg">
+  <section ref="firstImpressionsRef" class="u-mt-[180px] u-relative">
+    <svg
+      class="left-floaty-blob floating-blob"
+      data-floating-blob
+      data-bound-x="42"
+      data-bound-y="54"
+      data-drift-duration="10.5"
+      viewBox="0 0 1042 1303"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path d="M887.783 422.723C956.469 558.539 1052.51 710.114 1040.7 859.731C1029.22 1009.56 910.737 1157.53 755.914 1237.86C600.564 1318.31 409.607 1330.69 301.74 1236.37C193.872 1142.04 168.987 940.488 119.452 801.832C69.7071 663.494 -4.89664 588.373 0.555725 518.728C6.00809 449.082 91.6244 385.437 161.079 289.755C231.059 193.964 285.404 66.0287 378.794 20.247C471.658 -25.4266 603.778 10.7368 690.506 88.8472C777.55 167.166 818.887 287.224 887.783 422.723Z" fill="currentColor" />
     </svg>
-    <svg class="right-floaty-blob" viewBox="0 0 872 860" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      class="right-floaty-blob floating-blob"
+      data-floating-blob
+      data-bound-x="38"
+      data-bound-y="46"
+      data-drift-duration="11.2"
+      viewBox="0 0 872 860"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M847.179 345.911C901.3 521.624 866.406 717.176 747.484 805.032C627.85 892.889 424.9 873.05 258.266 762.521C92.3453 651.992 -37.2583 450.064 9.74076 284.27C57.452 118.476 281.054 -11.8913 464.778 0.862101C648.501 13.6155 793.059 170.198 847.179 345.911Z"
         fill="currentColor"
       />
     </svg>
-    <BlobFive class="right-floaty-extra-blob" />
+    <BlobFive
+      class="right-floaty-extra-blob floating-blob"
+      data-floating-blob
+      data-bound-x="34"
+      data-bound-y="40"
+      data-drift-duration="5.1"
+    />
 
     <div class="o-wrapper u-relative">
       <div class="o-stack u-items-center u-text-center">
@@ -117,7 +139,29 @@
   </section>
 </template>
 
+<script lang="ts" setup="">
+import { ref } from 'vue';
+import { useFloatingBlobs } from '~/app/composables/useFloatingBlobs';
+
+const firstImpressionsRef = ref<HTMLElement | null>(null);
+
+useFloatingBlobs(firstImpressionsRef, {
+  initialDelay: 320,
+  staggerDelay: 180,
+  defaultBoundX: 28,
+  defaultBoundY: 34,
+  defaultDuration: 8,
+});
+</script>
+
 <style scoped>
+.floating-blob {
+  --base-transform: translate3d(0, 0, 0);
+
+  transform: var(--base-transform) translate3d(var(--motion-x, 0px), var(--motion-y, 0px), 0);
+  will-change: transform;
+}
+
 .left-floaty-blob {
   color: theme('colors.orange');
   position: absolute;
