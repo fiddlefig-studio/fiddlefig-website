@@ -162,11 +162,7 @@ export function useFloatingBlobs(
   onMounted(() => {
     reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    if ('addEventListener' in reducedMotionQuery) {
-      reducedMotionQuery.addEventListener('change', handleMotionPreferenceChange);
-    } else {
-      reducedMotionQuery.addListener(handleMotionPreferenceChange);
-    }
+    reducedMotionQuery.addEventListener('change', handleMotionPreferenceChange);
 
     startFloatingBlobMotion();
   });
@@ -178,10 +174,6 @@ export function useFloatingBlobs(
       return;
     }
 
-    if ('removeEventListener' in reducedMotionQuery) {
-      reducedMotionQuery.removeEventListener('change', handleMotionPreferenceChange);
-    } else {
-      reducedMotionQuery.removeListener(handleMotionPreferenceChange);
-    }
+    reducedMotionQuery.removeEventListener('change', handleMotionPreferenceChange);
   });
 }

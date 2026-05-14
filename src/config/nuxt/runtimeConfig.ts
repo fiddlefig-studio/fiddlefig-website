@@ -7,7 +7,14 @@ if (!appDomain) {
 }
 
 const privateConfig = {
-  //
+  contactBccEmail: process.env.CONTACT_BCC_EMAIL,
+  contactFromEmail: process.env.CONTACT_FROM_EMAIL,
+  contactRateLimitMax: intEnv(process.env.CONTACT_RATE_LIMIT_MAX, '5'),
+  contactRateLimitWindow: intEnv(process.env.CONTACT_RATE_LIMIT_WINDOW, '900'),
+  contactToEmail: process.env.CONTACT_TO_EMAIL,
+  recaptchaMinScore: floatEnv(process.env.RECAPTCHA_MIN_SCORE, 0.5),
+  recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
+  resendApiKey: process.env.RESEND_API_KEY,
 };
 
 const publicConfig = {
@@ -16,6 +23,7 @@ const publicConfig = {
   appDomain,
   appEnv: appEnvironment(),
   logLevel: intEnv(process.env.APP_LOG_LEVEL, '1'),
+  recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY ?? '',
 };
 
 export const runtimeConfig = {
@@ -28,7 +36,7 @@ export const runtimeConfig = {
  * This function validates that the value provided is the exact string "true" or "false".
  * If it's not, it will instead return the default value "true". This can be modified to "false" per call.
  */
-function boolEnv(value?: string, defaultVal = 'true') {
+function _boolEnv(value?: string, defaultVal = 'true') {
   if (value === 'false' || value === 'true') {
     return value;
   } else {
@@ -42,4 +50,14 @@ function intEnv(value?: string, defaultVal?: string) {
   }
 
   return defaultVal ? parseInt(defaultVal) : undefined;
+}
+
+function floatEnv(value: string | undefined, defaultNum: number): number {
+  if (value === undefined || value === '') {
+    return defaultNum;
+  }
+
+  const n = Number.parseFloat(value);
+
+  return Number.isFinite(n) ? n : defaultNum;
 }

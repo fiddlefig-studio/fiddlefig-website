@@ -122,6 +122,9 @@
           <p class="u-section-text u-text-center u-max-w-[480px] u-mt-[1.5rem]">
             Reach out to us for a free chat about your project, brand or problem, and see what 16 years of experience can do for&nbsp;you.
           </p>
+          <NuxtLink class="contact-cta" to="/contact">
+            Start the conversation
+          </NuxtLink>
         </div>
       </div>
 
@@ -215,5 +218,27 @@ useFloatingBlobs(firstImpressionsRef, {
     transform: unset;
     transform-origin: unset;
   }
+}
+
+.contact-cta {
+  align-items: center;
+  background: theme('colors.orange');
+  border: 2px solid theme('colors.black');
+  border-radius: 999px;
+  color: theme('colors.black');
+  display: inline-flex;
+  font-family: theme('fontFamily.title');
+  font-size: theme('fontSize.18');
+  justify-content: center;
+  margin-top: 1.5rem;
+  min-height: 56px;
+  padding: 0.8rem 1.4rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.contact-cta:hover,
+.contact-cta:focus-visible {
+  transform: translateY(-2px);
 }
 </style>
