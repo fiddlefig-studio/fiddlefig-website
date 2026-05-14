@@ -35,8 +35,12 @@
     <div
       class="blob blob-top-right floating-blob"
       data-floating-blob
-      data-bound-x="30"
+      data-bound-x="34"
       data-bound-y="34"
+      data-motion-min-x="-38"
+      data-motion-max-x="8"
+      data-motion-min-y="-12"
+      data-motion-max-y="36"
       data-drift-duration="3.9"
     >
       <BlobSix />
@@ -188,12 +192,12 @@ useFloatingBlobs(heroRef);
   --blob-color: theme('colors.orange');
   --blob-width: calc(0.18 * var(--size-ratio));
   right: calc(-0.04 * var(--size-ratio));
-  top: -10px;
+  top: 0;
 
   @screen tablet {
     --blob-width: calc(0.14 * var(--size-ratio));
     right: calc(0.06 * var(--size-ratio));
-    top: 0;
+    top: 50px;
   }
 }
 

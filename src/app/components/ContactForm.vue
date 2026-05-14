@@ -1,10 +1,12 @@
 <template>
   <div class="form-shell">
     <div class="form-topper">
-      <p class="u-font-title u-text-[20px] tablet:u-text-[26px]">
-        Start your project
-      </p>
-      <p class="u-text-14 tablet:u-text-16">
+      <div class="form-topper-heading">
+        <p class="u-font-title u-text-[20px] tablet:u-text-[26px]">
+          Start your project
+        </p>
+      </div>
+      <p class="form-topper-lead u-text-14 tablet:u-text-16">
         Tell us what you are building and we will get back to you with the next best step.
       </p>
     </div>
@@ -279,17 +281,42 @@ function resetForm() {
 }
 
 .form-topper {
-  background:
-    linear-gradient(90deg, theme('colors.orange') 0 18%, theme('colors.white') 18% 100%);
+  background: theme('colors.white');
   border-bottom: 2px solid theme('colors.purple');
   display: grid;
-  gap: 0.75rem;
-  padding: 1.4rem 1.3rem;
+  gap: 1rem;
 
   @screen tablet {
-    align-items: center;
+    align-items: stretch;
+    gap: 0;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-    padding: 1.4rem 2rem;
+  }
+}
+
+.form-topper-heading {
+  background: theme('colors.orange');
+  padding: 1.4rem 1.3rem 1rem;
+
+  /** Curved separation from white: bulge along the trailing edge where two columns meet */
+  border-bottom-right-radius: 0;
+
+  @screen tablet {
+    align-self: stretch;
+    display: grid;
+    align-items: center;
+    border-top-right-radius: 2.5rem;
+    border-bottom-right-radius: 3rem;
+    padding: 1.45rem clamp(1.25rem, 3vw, 2rem);
+  }
+}
+
+.form-topper-lead {
+  margin: 0;
+  padding: 0 1.3rem 1.4rem;
+
+  @screen tablet {
+    align-self: center;
+    padding: 1.4rem clamp(1.25rem, 3vw, 2rem);
   }
 }
 
@@ -428,8 +455,6 @@ function resetForm() {
 
 .success-card {
   align-items: start;
-  background:
-    linear-gradient(135deg, rgba(255, 174, 176, 0.2), rgba(21, 162, 180, 0.08));
 }
 
 .success-kicker {

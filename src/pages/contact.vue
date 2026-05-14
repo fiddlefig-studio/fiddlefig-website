@@ -14,35 +14,13 @@
               Whether you need a sharper brand, a better website, or a full rethink of how your digital presence feels, start here. We will read it properly and reply with something useful.
             </p>
 
-            <div class="service-tags" aria-label="What we can help with">
+            <!--<div class="service-tags" aria-label="What we can help with">
               <span>Brand strategy</span>
               <span>Digital design</span>
               <span>Web builds</span>
               <span>E-commerce</span>
-            </div>
+            </div>-->
           </div>
-
-          <aside class="hero-aside">
-            <div class="hero-note hero-note-primary">
-              <p class="note-title">
-                Good fit for
-              </p>
-              <p class="note-text">
-                New launches, tired websites, ambitious rebrands, and projects that need more than a generic template.
-              </p>
-            </div>
-
-            <div class="hero-note hero-note-secondary">
-              <p class="note-title">
-                What happens next
-              </p>
-              <ol class="note-list">
-                <li>We read your brief.</li>
-                <li>We reply with the next step.</li>
-                <li>We decide together if it makes sense to move forward.</li>
-              </ol>
-            </div>
-          </aside>
         </div>
       </div>
     </section>
@@ -51,36 +29,7 @@
       <div class="o-wrapper">
         <div class="form-layout">
           <div class="form-sidebar">
-            <div class="sidebar-panel">
-              <p class="sidebar-kicker">
-                Straightforward process
-              </p>
-              <h2 class="u-section-heading">
-                Tell us the shape of the project.
-              </h2>
-              <p class="u-section-text">
-                A polished proposal is not required. A rough outline is enough if it helps us understand where you are now and where you want to get to.
-              </p>
-            </div>
-
-            <div class="timing-strip">
-              <div>
-                <p class="timing-label">
-                  Reply time
-                </p>
-                <p class="timing-value">
-                  Usually within 1 to 2 working days
-                </p>
-              </div>
-              <div>
-                <p class="timing-label">
-                  Based
-                </p>
-                <p class="timing-value">
-                  UK studio, working with brands anywhere
-                </p>
-              </div>
-            </div>
+            
           </div>
 
           <div class="form-column">

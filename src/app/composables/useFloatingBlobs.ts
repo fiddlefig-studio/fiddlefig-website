@@ -5,8 +5,10 @@ interface FloatingBlobState {
   el: HTMLElement
   currentX: number
   currentY: number
-  boundX: number
-  boundY: number
+  minX: number
+  maxX: number
+  minY: number
+  maxY: number
   fromX: number
   fromY: number
   targetX: number
@@ -52,6 +54,28 @@ export function useFloatingBlobs(
     return Number.isFinite(parsed) ? parsed : fallback;
   }
 
+  function parseMotionAxisRange(
+    symmetricBound: number,
+    minStr?: string,
+    maxStr?: string,
+  ) {
+    const hasAsym = minStr !== undefined || maxStr !== undefined;
+
+    if (!hasAsym) {
+      return { min: -symmetricBound, max: symmetricBound };
+    }
+
+    const fallbackMin = -symmetricBound;
+    const fallbackMax = symmetricBound;
+    const minCandidate = parseMotionNumber(minStr, fallbackMin);
+    const maxCandidate = parseMotionNumber(maxStr, fallbackMax);
+
+    return {
+      min: Math.min(minCandidate, maxCandidate),
+      max: Math.max(minCandidate, maxCandidate),
+    };
+  }
+
   function randomBetween(min: number, max: number) {
     return min + (Math.random() * (max - min));
   }
@@ -88,8 +112,8 @@ export function useFloatingBlobs(
 
         blob.hasStarted = true;
         blob.moveStartTime = timestamp;
-        blob.targetX = randomBetween(-blob.boundX, blob.boundX);
-        blob.targetY = randomBetween(-blob.boundY, blob.boundY);
+        blob.targetX = randomBetween(blob.minX, blob.maxX);
+        blob.targetY = randomBetween(blob.minY, blob.maxY);
       }
 
       const elapsed = timestamp - blob.moveStartTime;
@@ -102,8 +126,8 @@ export function useFloatingBlobs(
       if (progress >= 1) {
         blob.fromX = blob.currentX;
         blob.fromY = blob.currentY;
-        blob.targetX = randomBetween(-blob.boundX, blob.boundX);
-        blob.targetY = randomBetween(-blob.boundY, blob.boundY);
+        blob.targetX = randomBetween(blob.minX, blob.maxX);
+        blob.targetY = randomBetween(blob.minY, blob.maxY);
         blob.moveStartTime = timestamp;
         blob.moveDuration = randomBetween(blob.baseDuration * 0.75, blob.baseDuration * 1.25);
       }
@@ -131,14 +155,18 @@ export function useFloatingBlobs(
     floatingBlobs = Array.from(blobElements).map((el, index) => {
       const boundX = parseMotionNumber(el.dataset.boundX, defaultBoundX);
       const boundY = parseMotionNumber(el.dataset.boundY, defaultBoundY);
+      const rangeX = parseMotionAxisRange(boundX, el.dataset.motionMinX, el.dataset.motionMaxX);
+      const rangeY = parseMotionAxisRange(boundY, el.dataset.motionMinY, el.dataset.motionMaxY);
       const baseDuration = parseMotionNumber(el.dataset.driftDuration, defaultDuration) * 1000;
 
       return {
         el,
         currentX: 0,
         currentY: 0,
-        boundX,
-        boundY,
+        minX: rangeX.min,
+        maxX: rangeX.max,
+        minY: rangeY.min,
+        maxY: rangeY.max,
         fromX: 0,
         fromY: 0,
         targetX: 0,
